@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic HTML/CSS/JS</title>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+       .column {
+            float: left;
+            width: 50%;
+        }
+  
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background: #f1f1f1;
+        }
+
+        button {
+            margin-top: 10px;
+            background-color: forestgreen;
+            color:white;
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        } 
+    </style>
+  </head>
+  <body>
+    <div class="row">
+        <div class="column">
+            <!-- HTML Form Output-->
+            <h3>Output</h3>
+            <p id = "demo"></p>
+        </div>
+        <div class="column">
+            <!--HTML Form Input-->
+            <h3>Input</h3>
+            <form id="frm1">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="company">Company:</label><br>
+                <input type="text" id="company" name="company"><br>
+                <button type="button" onclick="outputData()">Submit</button> 
+            </form> 
+        </div>
+    </div>
+
+    <script>
+        function outputData(){
+            var x = document.getElementById("frm1");
+            var text = "";
+            var i;
+            for (i = 0; i < x.length ;i++) {
+                text += x.elements[i].value + "<br>";
+            }
+        document.getElementById("demo").innerHTML = text;
+        }
+    </script>
+    <!-- <script src="index.js"></script> -->
+  </body>
+</html>
